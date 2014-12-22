@@ -51,7 +51,8 @@ public class PlatformManager : MonoBehaviour {
 		o.localScale = scale;
 		o.localPosition = position;
 		int materialIndex = Random.Range(0, materials.Length);
-		o.renderer.material = materials[materialIndex];
+		o.renderer.material.color = Color.yellow;
+		//o.renderer.material = materials[materialIndex];
 		o.collider.material = physicMaterials[materialIndex];
 		objectQueue.Enqueue(o);
 		
