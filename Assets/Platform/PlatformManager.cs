@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 public class PlatformManager : MonoBehaviour {
-
+	
 	public Transform prefab;
 	public int numberOfObjects;
 	public float recycleOffset;
@@ -12,10 +12,13 @@ public class PlatformManager : MonoBehaviour {
 	public Material[] materials;
 	public PhysicMaterial[] physicMaterials;
 	public Booster booster;
-
+	public static Material pink;
+	public static Material yellow;
+	public static Material blue;
+	
 	private Vector3 nextPosition;
 	private Queue<Transform> objectQueue;
-
+	
 	void Start () {
 		GameEventManager.GameStart += GameStart;
 		GameEventManager.GameOver += GameOver;
@@ -26,24 +29,24 @@ public class PlatformManager : MonoBehaviour {
 		}
 		enabled = false;
 	}
-
+	
 	void Update () {
 		if(objectQueue.Peek().localPosition.x + recycleOffset < Runner.distanceTraveled){
 			Recycle();
 		}
 	}
-
+	
 	private void Recycle () {
 		Vector3 scale = new Vector3(
 			Random.Range(minSize.x, maxSize.x),
 			Random.Range(minSize.y, maxSize.y),
 			Random.Range(minSize.z, maxSize.z));
-
+		
 		Vector3 position = nextPosition;
 		position.x += scale.x * 0.5f;
 		position.y += scale.y * 0.5f;
 		booster.SpawnIfAvailable(position);
-
+		
 		Transform o = objectQueue.Dequeue();
 		o.localScale = scale;
 		o.localPosition = position;
@@ -51,12 +54,12 @@ public class PlatformManager : MonoBehaviour {
 		o.renderer.material = materials[materialIndex];
 		o.collider.material = physicMaterials[materialIndex];
 		objectQueue.Enqueue(o);
-
+		
 		nextPosition += new Vector3(
 			Random.Range(minGap.x, maxGap.x) + scale.x,
 			Random.Range(minGap.y, maxGap.y),
 			Random.Range(minGap.z, maxGap.z));
-
+		
 		if(nextPosition.y < minY){
 			nextPosition.y = minY + maxGap.y;
 		}
@@ -71,6 +74,9 @@ public class PlatformManager : MonoBehaviour {
 			Recycle();
 		}
 		enabled = true;
+		pink = materials[0];
+		yellow = materials[1];
+		blue = materials[2];
 	}
 	
 	private void GameOver () {

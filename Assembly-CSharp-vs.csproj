@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{721343B5-95C5-5AAB-A994-AE1AD529BAEC}</ProjectGuid>
+	<ProjectGuid>{E5AE2F19-0E5E-EA0C-A725-7A5858879A2C}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -59,12 +59,12 @@
      <Compile Include="Assets\pinkCubeTouch.cs" />
      <Compile Include="Assets\yellowCubeTouch.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/ShapeSurfer/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/ShapeSufer/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{EE541777-7362-3BFB-F84C-F96A705544F4}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{F0C004E7-25E5-C9F3-A522-72CD9DFF3DD0}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
